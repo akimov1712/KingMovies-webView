@@ -1,4 +1,4 @@
-package ru.topbun.km
+package ru.kingmovies.km
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -9,7 +9,6 @@ import android.graphics.BitmapFactory
 import android.util.AttributeSet
 import android.view.View
 import android.webkit.WebChromeClient
-import android.webkit.WebView
 import android.widget.FrameLayout
 import org.adblockplus.libadblockplus.android.webview.AdblockWebView
 

@@ -1,4 +1,4 @@
-package ru.topbun.km
+package ru.kingmovies.km
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -8,10 +8,8 @@ import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.ImageView
-import android.widget.ProgressBar
 import androidx.annotation.RequiresApi
-import ru.topbun.km.databinding.ActivityMainBinding
+import ru.kingmovies.km.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy {

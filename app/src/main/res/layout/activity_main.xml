@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/km_blue"
-    tools:context="ru.topbun.km.MainActivity">
+    tools:context="ru.kingmovies.km.MainActivity">
 
     <ImageView
         android:id="@+id/iv_logo"
@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ru.topbun.km.FullScreenVideoWebView
+    <ru.kingmovies.km.FullScreenVideoWebView
         android:id="@+id/webView"
         android:visibility="gone"
         android:layout_width="match_parent"

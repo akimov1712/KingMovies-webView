@@ -1,4 +1,4 @@
-package ru.topbun.km
+package ru.kingmovies.km
 
 import org.junit.Test
 

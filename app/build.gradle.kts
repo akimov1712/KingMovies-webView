@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "ru.topbun.km"
+    namespace = "ru.kingmovies.km"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "ru.topbun.km"
+        applicationId = "ru.kingmovies.km"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 8
+        versionName = "1.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
