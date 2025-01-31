@@ -8,12 +8,13 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.AttributeSet
 import android.view.View
+import android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 import android.webkit.WebChromeClient
+import android.webkit.WebView
 import android.widget.FrameLayout
-import org.adblockplus.libadblockplus.android.webview.AdblockWebView
 
 
-class FullScreenVideoWebView : AdblockWebView {
+class FullScreenVideoWebView : WebView {
     constructor(context: Context) : super(context) {
         initView(context)
     }

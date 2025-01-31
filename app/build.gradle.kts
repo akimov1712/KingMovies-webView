@@ -11,8 +11,8 @@ android {
         applicationId = "ru.kingmovies.km"
         minSdk = 24
         targetSdk = 34
-        versionCode = 8
-        versionName = "1.6"
+        versionCode = 14
+        versionName = "1.9"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -39,7 +39,6 @@ android {
 }
 
 dependencies {
-    implementation("org.adblockplus:adblock-android-webview:4.1.2")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

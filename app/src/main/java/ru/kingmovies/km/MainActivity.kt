@@ -1,5 +1,6 @@
 package ru.kingmovies.km
 
+import android.graphics.Bitmap
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,44 +19,69 @@ class MainActivity : AppCompatActivity() {
     private var savedInstanceState: Bundle? = null
     private val URL = "https://kinmov.ru/"
 
+    private var errorCode: Int? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         this.savedInstanceState = savedInstanceState
-        if (savedInstanceState != null){
-            binding.webView.restoreState(savedInstanceState.getBundle("webViewState")!!);
+
+        if (savedInstanceState != null) {
+            binding.webView.restoreState(savedInstanceState.getBundle("webViewState")!!)
         }
-        with(binding){
+
+        with(binding) {
+            button.setOnClickListener {
+                errorCode = null
+                errorWrapper.visibility = View.GONE
+                ivLogo.visibility = View.VISIBLE
+                progressBar.visibility = View.VISIBLE
+                webView.visibility = View.GONE
+                webView.url?.let { webView.loadUrl(it) }
+            }
+
             webView.loadUrl(URL)
             webView.webViewClient = object : WebViewClient() {
+
+
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)
                     ivLogo.visibility = View.GONE
                     progressBar.visibility = View.GONE
-                    webView.visibility = View.VISIBLE
+                    if (errorCode == null)webView.visibility = View.VISIBLE
                 }
+
                 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
                 override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
-                    val url: String = request?.url.toString();
+                    val url: String = request?.url.toString()
                     view?.loadUrl(url)
                     return true
                 }
+
                 override fun shouldOverrideUrlLoading(webView: WebView, url: String): Boolean {
                     webView.loadUrl(url)
                     return true
                 }
+
                 override fun onReceivedError(
                     view: WebView?,
                     request: WebResourceRequest?,
                     error: WebResourceError?
                 ) {
                     super.onReceivedError(view, request, error)
-
+                    val host = request?.url?.host
+                    println("Произошла ошибка на $host")
+                    if (host == "kinmov.ru"){
+                        errorWrapper.visibility = View.VISIBLE
+                        ivLogo.visibility = View.GONE
+                        progressBar.visibility = View.GONE
+                        webView.visibility = View.GONE
+                    }
                 }
-
             }
         }
     }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
